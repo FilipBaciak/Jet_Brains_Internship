@@ -1,0 +1,9 @@
+torch>=1.10.0
+transformers>=4.30.0
+datasets>=2.7.0
+evaluate>=0.3.0
+peft>=0.3.0
+bitsandbytes>=0.39.0
+numpy>=1.21.0
+sacrebleu
+pytest
