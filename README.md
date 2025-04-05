@@ -53,8 +53,6 @@ python src/train.py
 To function properly, the script requires an environmental variable ```"HF_API_KEY"``` which contains a HuggingFace API key with an acces to LLama-3.2.
 It can be also added as a secret variable in the Google Colab.
 
-## Premise
-
 
 ## Contact
 
