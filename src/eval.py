@@ -1,9 +1,4 @@
-# src/eval.py
 import torch
-from transformers import AutoTokenizer
-from src.config import MODEL_NAME, BNB_CONFIG, PEFT_CONFIG
-from peft import get_peft_model, prepare_model_for_kbit_training
-from transformers import AutoModelForCausalLM
 import evaluate
 from preprocess import load_filtered_apps_dataset
 import subprocess

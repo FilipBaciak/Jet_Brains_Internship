@@ -10,7 +10,6 @@ The graphic above displays three subplots:
    - The curve shows a clear downward trend from around 1.6–1.7 at the start to roughly 0.8–0.9 by the end of training.
    - This steady decrease indicates that the model is progressively learning and fitting the training data better over time.
    - The absence of any plateau or upward spike suggests that there are no immediate signs of underfitting or overfitting at the training level.
-   - (The graph contains a slight error, the steps scale should be the same as in the other two).
 
 2. **Validation Loss Curve (Center Plot):**
    - The validation loss starts around 1.36 and drops steadily to around 1.20 (or slightly lower).

@@ -109,13 +109,13 @@ TRAINING_ARGS = {
 - 10 fine tuning epochs
 
 ### Evalution
-After each methon in addition to the validation loss a [CHRF](https://huggingface.co/spaces/evaluate-metric/chrf) metric was compute in order to measure the text similarity between input and output.
+After each epoch in addition to the validation loss a [CHRF](https://huggingface.co/spaces/evaluate-metric/chrf) metric was compute in order to measure the text similarity between input and output.
 
 Additionally, the ```eval.py``` file contains a function to compute the CHRF metric and perform an actual Python evaluation. This includes output comparisons of generated code on a couple of random examples.
 
 ### Remarks
 
-Generally speaking, I was limited by the computing power, as I have used the free version of Google Collab.
+Generally speaking, I was limited by the computing power (T4 GPU with 15 GB vram), as I have used the free version of Google Collab.
 The attached notebook contains the code which was actually used to obtain results.
 
 One think worth noting is that the ```transformers``` library contains a memory leakage when using compute metrics parameter. However, I have managed to solve this issue.

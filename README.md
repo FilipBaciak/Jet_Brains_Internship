@@ -32,8 +32,8 @@ Detailed description of the algorithm and training results are in the ```docs```
 
 ### **1. Clone the Repository**
 ```bash
-git clone https://github.com/
-cd 
+git clone https://github.com/FilipBaciak/Jet_Brains_Internship
+cd Jet_Brains_Internship
 ```
 
 ### **2. Install Dependencies**
