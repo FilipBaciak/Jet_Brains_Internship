@@ -11,6 +11,7 @@ def safe_parse(json_str):
     except json.JSONDecodeError:
         return None
 
+# Format prompt for Llama
 def format_prompt(example):
     """Prompt structure for code generation"""
 
@@ -26,6 +27,7 @@ Your solution must:
 Solution Code:
 """
 
+# Load the dataset
 def load_filtered_apps_dataset(split="train", max_samples=500):
     """Dataset loading with filtering"""
     """Only 500 samples of short questions with short answers """

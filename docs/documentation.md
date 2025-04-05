@@ -118,6 +118,6 @@ Additionally, the ```eval.py``` file contains a function to compute the CHRF met
 Generally speaking, I was limited by the computing power (T4 GPU with 15 GB vram), as I have used the free version of Google Collab.
 The attached notebook contains the code which was actually used to obtain results.
 
-One think worth noting is that the ```transformers``` library contains a memory leakage when using compute metrics parameter. However, I have managed to solve this issue.
+One thing worth noting is that the ```transformers``` library contains a memory leakage when using compute metrics parameter. However, I have managed to solve this issue.
 
 Retrieval techniques were not used, as finding appropriate context for algorithmic programming would have required significant additional effort.

@@ -9,6 +9,7 @@ from src.preprocess import preprocess, load_filtered_apps_dataset
 import evaluate
 from src.eval import do_evaluation
 
+# Get an API Key
 HF_API_KEY = os.getenv("HF_API_KEY")
 if HF_API_KEY is None:
     try:
@@ -29,7 +30,7 @@ model = AutoModelForCausalLM.from_pretrained(
 tokenizer = AutoTokenizer.from_pretrained(MODEL_NAME)
 tokenizer.pad_token = tokenizer.eos_token
 
-model = prepare_model_for_kbit_training(model)
+model = prepare_model_for_kbit_training(model) #Using QLoRA
 model = get_peft_model(model, PEFT_CONFIG)
 model.gradient_checkpointing_enable()
 
@@ -38,7 +39,7 @@ model.gradient_checkpointing_enable()
 
 
 
-# Load dataset and apply preprocessing (adjust load_dataset as needed)
+# Load dataset and apply preprocessing
 dataset = load_filtered_apps_dataset()
 
 tokenized_data = dataset.map((lambda x : preprocess(x, tokenizer)) , batched=True, remove_columns=["prompt", "solution"])
@@ -54,8 +55,11 @@ training_args = TrainingArguments(
 )
 
 
+#Loading CHRF
 chrf = evaluate.load("chrf")
 
+
+#Validation metric
 def compute_metrics(pred):
 
     labels_ids = pred.label_ids
@@ -76,16 +80,15 @@ def compute_metrics(pred):
     return {"chrf": results["score"]}
 
 
+# This function is needed to prevented a bugged memory leakage in the transformers library
 def preprocess_logits_for_metrics(logits, labels):
-    """
-    Original Trainer may have a memory leak.
-    This is a workaround to avoid storing too many tensors that are not needed.
-    """
+
 
     pred_ids = torch.argmax(logits, dim=-1)
     return pred_ids, labels
 
 
+# Trainer
 trainer = Trainer(
     model=model,
     args=training_args,
@@ -97,6 +100,7 @@ trainer = Trainer(
 )
 
 
+# Clear cache after each epoch to save memory
 class ClearCacheCallback(TrainerCallback):
     def on_epoch_end(self, args, state, control, **kwargs):
         torch.cuda.empty_cache()
@@ -105,10 +109,12 @@ class ClearCacheCallback(TrainerCallback):
 
 
 trainer.add_callback(ClearCacheCallback())
+
+
 # Train the model
 trainer.train()
 
-# Optionally, save your model
+# Save model
 model.save_pretrained("./results/fine_tuned_model")
 tokenizer.save_pretrained("./results/fine_tuned_model")
 

@@ -6,7 +6,7 @@ from peft import LoraConfig
 from transformers import BitsAndBytesConfig
 
 
-
+# Global settings
 sys.set_int_max_str_digits(100000)
 os.environ["PYTORCH_CUDA_ALLOC_CONF"] = "expandable_segments:True"
 
@@ -48,5 +48,5 @@ TRAINING_ARGS = {
     "report_to": "none"
 }
 
-
+# Dataset name (from HuggingFace)
 DATASET_NAME = "codeparrot/apps"
