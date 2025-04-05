@@ -119,5 +119,8 @@ Generally speaking, I was limited by the computing power (T4 GPU with 15 GB vram
 The attached notebook contains the code which was actually used to obtain results.
 
 One thing worth noting is that the ```transformers``` library contains a memory leakage when using compute metrics parameter. However, I have managed to solve this issue.
+Solving this bug did require a lot of effort, and it is unclear to me why this long-standing issue in a highly used function hasn't been fixed. 
+One can read more about [here](https://discuss.huggingface.co/t/cuda-out-of-memory-when-using-trainer-with-compute-metrics/2941/16).
+One can read more about [here](https://discuss.huggingface.co/t/cuda-out-of-memory-when-using-trainer-with-compute-metrics/2941/16).
 
 Retrieval techniques were not used, as finding appropriate context for algorithmic programming would have required significant additional effort.

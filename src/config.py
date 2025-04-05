@@ -8,7 +8,6 @@ from transformers import BitsAndBytesConfig
 
 # Global settings
 sys.set_int_max_str_digits(100000)
-os.environ["PYTORCH_CUDA_ALLOC_CONF"] = "expandable_segments:True"
 
 # Model and quantization settings
 MODEL_NAME = "meta-llama/Llama-3.2-1B"

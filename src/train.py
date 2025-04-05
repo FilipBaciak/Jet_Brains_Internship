@@ -17,7 +17,7 @@ if HF_API_KEY is None:
         HF_API_KEY = userdata.get("HF_API_KEY")
         print("Using API key from Colab userdata.")
     except ImportError:
-        print("No API key found. Running locally.")
+        print("No API key found.")
 
 # Load Model & Tokenizer
 login(token=HF_API_KEY)
@@ -55,11 +55,11 @@ training_args = TrainingArguments(
 )
 
 
-#Loading CHRF
+# Loading CHRF
 chrf = evaluate.load("chrf")
 
 
-#Validation metric
+# Validation metric
 def compute_metrics(pred):
 
     labels_ids = pred.label_ids
@@ -81,8 +81,8 @@ def compute_metrics(pred):
 
 
 # This function is needed to prevented a bugged memory leakage in the transformers library
+# Taken from: https://discuss.huggingface.co/t/cuda-out-of-memory-when-using-trainer-with-compute-metrics/2941/16
 def preprocess_logits_for_metrics(logits, labels):
-
 
     pred_ids = torch.argmax(logits, dim=-1)
     return pred_ids, labels
