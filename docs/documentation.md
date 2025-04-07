@@ -17,7 +17,9 @@ We use QLoRA fine-tuning on the Llama-3.2-1B model on python code examples, to e
 
 
 ## Code Implementation
-We use QLoRA fine-tuning on the Llama-3.2-1B model on python code examples, to enhance the model's programming capabilities and encourage code generation that more closely mirrors model solutions.
+We use QLoRA fine-tuning on the Llama-3.2-1B model (which is not instruction based) on python code examples, to enhance the model's programming capabilities and encourage code generation that more closely mirrors model solutions.
+It is interesting to see, whether our fine tuning will help in the task of coherent output formatting of the model which wasn't optimized for the assistance tasks.
+
 ### Dataset Preparation -- ```preprocess.py```
 **APPS Dataset Processing:** 
 

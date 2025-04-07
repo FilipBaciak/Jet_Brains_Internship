@@ -26,5 +26,5 @@ The graphic above displays three subplots:
 - **Consistent Improvement:** Both training and validation losses decrease steadily while the validation CHRF metric increases, indicating balanced progress in learning and generalization.
 - **No Overfitting Signs:** There is no significant divergence between the training and validation curves, which is a positive sign of the model's stability.
 
-However, as the size of the fine tuning dataset wasn't particurarly high (500 total examples) and the training took only 10 epochs, the model probably did not gain any new code writing skills.
+However, as the size of the fine-tuning dataset wasn't particularly high (500 total examples) and the training took only 10 epochs, the model probably did not gain any new code writing skills.
 It is however interesting to see the change in similarity, because the based model was not adapted to be the interactive assistant, just the raw next token generator (at least in the llama version I have used).
