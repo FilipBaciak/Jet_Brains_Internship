@@ -43,6 +43,8 @@ model.gradient_checkpointing_enable()
 dataset = load_filtered_apps_dataset()
 
 tokenized_data = dataset.map((lambda x : preprocess(x, tokenizer)) , batched=True, remove_columns=["prompt", "solution"])
+# Split into train and validation dataset (named "train" and "test").
+# The validation dataset will be used as a benchmarking task, as this is only a demonstration example.
 tokenized_data = tokenized_data.train_test_split(test_size=0.1)
 
 

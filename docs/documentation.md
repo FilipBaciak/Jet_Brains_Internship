@@ -33,6 +33,11 @@ We use the [APPS](https://arxiv.org/pdf/2105.09938) dataset which consists of py
   ```
   Due to the limits in the resources, we restrict ourselves to only 500 examples.
 
+  Since this is a demonstration project and no hyperparameter tuning was performed, the validation set was used for evaluation throughout training to monitor model performance.
+
+  In a more thorough setup, one would typically split the dataset into a third partition — a dedicated test set — which would remain untouched during training and validation. This held-out set would then be used as a true benchmark for final model evaluation after tuning hyperparameters.
+
+
   The file also contains the function to properly tokenize the prompts.
 
 
